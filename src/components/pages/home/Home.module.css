@@ -1,0 +1,28 @@
+.home {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    sfont-style: normal;
+
+    h1 {
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+
+    }
+}
