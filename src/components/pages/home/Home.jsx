@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <main>
             <section className={styles.home}>
-                <h1>GAME OVER</h1>
+                <h1>GAME OVER ?</h1>
                 <p>PLAY AGAIN</p>
                 <ul>
                     <li><Link to="/register">YES</Link></li>
