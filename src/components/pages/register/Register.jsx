@@ -1,8 +1,17 @@
 import styles from "./Register.module.css";
 
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Register = () => {
+
+
+    const register = () => {
+
+        toast.error("Successfully register");
+
+    };
+
     return (
         <main className={styles.register}>
             <section className={styles.header}>
@@ -10,7 +19,7 @@ const Register = () => {
                 <p className={styles.logo}></p>
             </section>
 
-            <form className={styles.registerForm} action="">
+            <form className={styles.registerForm} action={register}>
 
                 <h3>Register</h3>
 

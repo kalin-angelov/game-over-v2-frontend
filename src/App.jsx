@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 
 import Home from "./components/pages/home/Home";
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/create" element={<CreateGame />} />
             </Routes>
+            <ToastContainer position="bottom-right"/>
             {/* <Footer /> */}
         </>
     );

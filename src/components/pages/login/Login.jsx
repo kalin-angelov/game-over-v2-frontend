@@ -1,8 +1,15 @@
 import styles from "./Login.module.css";
 
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
+
+    const login = () => {
+
+        toast.success("Welcome");
+    };
+
     return (
         <main className={styles.login}>
             <section className={styles.header}>
@@ -10,7 +17,7 @@ const Login = () => {
                 <p className={styles.logo}></p>
             </section>
 
-            <form className={styles.loginForm} action="">
+            <form className={styles.loginForm} action={login}>
 
                 <h3>Login</h3>
 
