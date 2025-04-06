@@ -1,15 +1,38 @@
 import styles from "./Register.module.css";
 
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { useAuthStore } from "@/store/auth";
+
 const Register = () => {
+    const navigate = useNavigate();
+    const { createAuth } = useAuthStore();
+    const [newUser, setNewUser] = useState({
+        email: "",
+        password: "",
+        confPassword: ""
+    });
 
+    const handleRegister = async (e) => {
+        e.preventDefault();
 
-    const register = () => {
+        const { success, message } = await createAuth(newUser);
 
-        toast.error("Successfully register");
+        if (!success) {
+            toast.error(message);
+        } else {
+            toast.success(message);
 
+            setNewUser({
+                email: "",
+                password: "",
+                confPassword: ""
+            });
+            navigate("/login");
+        }
+       
     };
 
     return (
@@ -19,7 +42,7 @@ const Register = () => {
                 <p className={styles.logo}></p>
             </section>
 
-            <form className={styles.registerForm} action={register}>
+            <form className={styles.registerForm}>
 
                 <h3>Register</h3>
 
@@ -27,7 +50,7 @@ const Register = () => {
                     <label htmlFor="email">Email</label>
                     <div className={styles.formInput}>
                         <i className="fa-solid fa-at"></i>
-                        <input type="text" placeholder="Email" id="email" />
+                        <input type="text" placeholder="Email" id="email" value={newUser.email} onChange={(e) => setNewUser({...newUser, email: e.target.value})} />
                     </div>
                 </fieldset>
                 
@@ -35,19 +58,19 @@ const Register = () => {
                     <label htmlFor="password">Password</label>
                     <div className={styles.formInput}>
                         <i className="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Password" id="password" />
+                        <input type="password" placeholder="Password" id="password" value={newUser.password} onChange={(e) => setNewUser({...newUser, password: e.target.value})} />
                     </div>
                 </fieldset>
                 
                 <fieldset>
-                    <label htmlFor="confirmPassword">Password</label>
+                    <label htmlFor="confirmPassword">Confirm password</label>
                     <div className={styles.formInput}>
                         <i className="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Confirm Password" id="confirmPassword" />
+                        <input type="password" placeholder="Confirm Password" id="confirmPassword" value={newUser.confPassword} onChange={(e) => setNewUser({...newUser, confPassword: e.target.value})}/>
                     </div>
                 </fieldset>
 
-                <button type="submit" className={styles.registerBtn}>Register</button>
+                <button type="submit" onClick={(e) => {handleRegister(e)}} className={styles.registerBtn}>Register</button>
                 <p> Already have account? Click here <i className="fa-regular fa-hand-point-right"> </i> <Link to='/login'>Login</Link> </p>
             </form>
         
