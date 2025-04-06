@@ -1,23 +1,25 @@
-import { zustand } from "zustand";
+import { create } from "zustand";
+
+const URL = "http://localhost:8080";
 
 export const useAuthStore = create (( set ) => ({
     auths: [],
-    createAuths: (auth) => set ({ auths }),
+    createAuths: (auths) => set ({ auths }),
     createAuth: async(newAuth) => {
 
-        if (!newAuth.email || !newAuth.password || !newAuth.rePassword) {
+        if (!newAuth.email || !newAuth.password || !newAuth.confPassword) {
 
             return { success: false, message: "All fields are required" };
         }
 
-        if (newAuth.password !== newAuth.rePassword) {
+        if (newAuth.password !== newAuth.confPassword) {
 
-            return { success: false, message: "Password don't match" };
+            return { success: false, message: "Password and Confirm password don't match" };
         }
 
         try {
             
-            const response = await fetch(`/api/auth/register`, {
+            const response = await fetch(`${URL}/api/v1/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -27,7 +29,7 @@ export const useAuthStore = create (( set ) => ({
 
             const data = await response.json();
 
-            if (data.status !== 201) {
+            if (data.status !== 200) {
                 throw { massage: data.massage }
             }
 
