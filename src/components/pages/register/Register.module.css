@@ -28,7 +28,7 @@
             height: 60px;
             width: 60px;
             margin: 16px;
-            background: url("../public/images/logo2.png");
+            background: url("/images/logo2.png");
             border-radius: 50%;
             box-sizing: border-box;
             box-shadow: 7px 7px 10px #ff0000, -7px -7px 10px rgb(255, 255, 255);
