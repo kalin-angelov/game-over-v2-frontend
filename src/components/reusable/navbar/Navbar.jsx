@@ -1,20 +1,27 @@
 import styles from "./Navbar.module.css";
 
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const { setAuth, isAuthenticated } = useContext(AuthContext);
 
-    const [authenticated, setAuthenticated] = useState(true);
-
+    const logout = () => {
+        setAuth({});
+        navigate("/");
+    };
+    
     return (
+
         <nav className={styles.navbar}>
 
-            {authenticated ?
+            {isAuthenticated ?
                 <ul>
                     <li><Link to="/create">Add Game</Link></li>
-                    <li><Link to="/" onClick={() => {setAuthenticated(false)}}>logout</Link></li>
+                    <li><Link to="/" onClick={logout}>logout</Link></li>
                 </ul>
                 :
                 <ul>

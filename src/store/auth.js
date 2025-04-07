@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import { registerFormValidator } from "@/utils/formValidator";
+
 const URL = "http://localhost:8080";
 
 export const useAuthStore = create (( set ) => ({
@@ -7,17 +9,9 @@ export const useAuthStore = create (( set ) => ({
     createAuths: (auths) => set ({ auths }),
     createAuth: async(newAuth) => {
 
-        if (!newAuth.email || !newAuth.password || !newAuth.confPassword) {
-
-            return { success: false, message: "All fields are required" };
-        }
-
-        if (newAuth.password !== newAuth.confPassword) {
-
-            return { success: false, message: "Password and Confirm password don't match" };
-        }
-
         try {
+
+            registerFormValidator(newAuth);
             
             const response = await fetch(`${URL}/api/v1/auth/register`, {
                 method: "POST",
@@ -37,17 +31,18 @@ export const useAuthStore = create (( set ) => ({
             return { success: true, message: "Successfully register."}
 
         } catch (error) {
-            return { success: false, error: error.message };
+            
+            return { success: false, message: error.message };
         }
     },
     singInAuth: async(auth) => {
 
-        if(!auth.username  || !auth.password) {
+        if(!auth.email  || !auth.password) {
             return { success: false, message: "Please provide all fields"};
         }
 
         try {
-            const response = await fetch(`/api/auth/login`, {
+            const response = await fetch(`${URL}/api/v1/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -57,12 +52,13 @@ export const useAuthStore = create (( set ) => ({
 
             const data = await response.json();
             console.log(data);
-            
+
             if (data.status !== 200) {
                throw { message: data.message }
             }
             
-            return { success: true, message: "Welcome"};
+
+            return { success: true, message: "Welcome", data: data };
 
         } catch (error) {
             return { success: false, message: error.message };

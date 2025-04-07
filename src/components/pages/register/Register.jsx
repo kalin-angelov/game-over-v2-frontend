@@ -19,7 +19,7 @@ const Register = () => {
         e.preventDefault();
 
         const { success, message } = await createAuth(newUser);
-
+        
         if (!success) {
             toast.error(message);
         } else {
