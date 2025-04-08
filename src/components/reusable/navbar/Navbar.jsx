@@ -7,10 +7,11 @@ import { AuthContext } from "@/contexts/AuthContext";
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const { setAuth, isAuthenticated } = useContext(AuthContext);
+    const { setAuth, setUserInfo, isAuthenticated } = useContext(AuthContext);
 
     const logout = () => {
         setAuth({});
+        setUserInfo({});
         navigate("/");
     };
     

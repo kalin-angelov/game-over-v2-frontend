@@ -17,3 +17,18 @@ export const registerFormValidator = (newAuth) => {
     }
 
 };
+
+export const createGameFormValidator = (newGame) => {
+    if (!newGame.title || !newGame.imgUrl || !newGame.platform || !newGame.description) {
+        throw Error("All fields are required");
+    }
+
+    if (newGame.title.length < 2) {
+        throw Error("Title must be at least 2 chars");
+    }
+
+    if (!newGame.imgUrl.startsWith('http') || !newGame.imgUrl.startsWith('https')) {
+        throw Error('Invalid Image URL!');
+    }
+    
+}

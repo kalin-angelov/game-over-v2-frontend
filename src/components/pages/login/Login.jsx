@@ -9,7 +9,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
-    const { setAuth, isAuthenticated } = useContext(AuthContext);
+    const { setAuth, setUserInfo } = useContext(AuthContext);
     const { singInAuth } = useAuthStore();
     const [user, setUser] = useState({
         email: "",
@@ -24,7 +24,10 @@ const Login = () => {
         if (!success) {
             toast.error(message);
         } else {
-            setAuth(data);
+            console.log(data.user);
+            
+            setAuth(data.token);
+            setUserInfo(data.user);
             toast.success(message);
             
             setUser({

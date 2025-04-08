@@ -10,7 +10,7 @@ export const RouteGuard = () => {
 
     useEffect(() => {
         if (!isAuthenticated) {
-            navigate("/register");
+            navigate("/login");
         }
 
         if (isAuthenticated) {

@@ -14,14 +14,18 @@ import PageNotFound from "./components/pages/notFound/PageNotFound";
 import { RouteGuard } from "./components/reusable/routeGuard/RouteGuard";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./contexts/AuthContext";
+import { useState } from "react";
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
+    const [userInfo, setUserInfo] = useState({});
 
     const valueContext = {
         auth,
         setAuth,
-        isAuthenticated: !!auth.token,
+        userInfo,
+        setUserInfo,
+        isAuthenticated: auth.length > 0,
     };
     
     return (

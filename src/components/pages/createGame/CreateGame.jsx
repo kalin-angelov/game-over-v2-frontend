@@ -1,13 +1,38 @@
 import styles from "./CreateGame.module.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useState } from "react";
+
+import { useGameStore } from "@/store/game";
 
 const CreateGame = () => {
+    const navigate = useNavigate();
+    const { createGame } = useGameStore();
+    const [game, setGame] = useState({
+        title: "",
+        imgUrl: "",
+        platform: "",
+        description: ""
+    });
 
-    const addGame = () => {
-
-        toast.success("Game successfully saved.");
+    const addGame = async (e) => {
+        e.preventDefault();
+        const { success, message } = await createGame(game);
+        
+        if (!success) {
+            toast.error(message);
+        } else {
+            
+            toast.success(message);  
+            setGame({
+                title: "",
+                imgUrl: "",
+                platform: "",
+                description: ""
+            });
+            navigate("/");
+        }
         
     }
 
@@ -18,7 +43,7 @@ const CreateGame = () => {
                 <p className={styles.logo}></p>
             </section>
 
-            <form className={styles.addGameForm} action={addGame}>
+            <form className={styles.addGameForm}>
 
                 <h3>Add Game</h3>
 
@@ -26,7 +51,7 @@ const CreateGame = () => {
                     <label htmlFor="title">Title</label>
                     <div className={styles.formInput}>
                         <i className="fa-solid fa-file-signature"></i>
-                        <input type="text" placeholder="Title" id="title" />
+                        <input type="text" placeholder="Title" id="title" value={game.title} onChange={(e) => setGame({...game, title: e.target.value})}/>
                     </div>
                 </fieldset>
 
@@ -34,7 +59,7 @@ const CreateGame = () => {
                     <label htmlFor="imgUrl">Image URL</label>
                     <div className={styles.formInput}>
                         <i className="fa-regular fa-image"></i>
-                        <input type="url" placeholder="Image URL" id="imgUrl" />
+                        <input type="url" placeholder="Image URL" id="imgUrl" value={game.imgUrl} onChange={(e) => setGame({...game, imgUrl: e.target.value})}/>
                     </div>
                 </fieldset>
 
@@ -44,7 +69,8 @@ const CreateGame = () => {
                     <i className="fa-solid fa-gamepad"></i>
                         <select
                             name="platform" 
-                            id="platform">
+                            id="platform"
+                            value={game.platform} onChange={(e) => setGame({...game, platform: e.target.value})}>
                                 <option value="" selected disabled hidden>PLATFORM</option>
                                 <option>OTHER</option>
                                 <option>PLAYSTATION</option>
@@ -64,11 +90,13 @@ const CreateGame = () => {
                             placeholder="Description"
                             name="summary"
                             id="description"
+                            value={game.description} 
+                            onChange={(e) => setGame({...game, description: e.target.value})}
                         ></textarea>
                     </div>
                 </fieldset>
                 
-                <button type="submit" className={styles.createBtn}>Add</button>
+                <button type="submit" onClick={(e) => addGame(e)} className={styles.createBtn}>Add</button>
 
             </form>
 
