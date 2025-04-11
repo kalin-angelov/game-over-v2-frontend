@@ -3,7 +3,6 @@ import { create } from "zustand";
 import { registerFormValidator } from "@/utils/formValidator";
 
 const URL = "http://localhost:8080";
-const token = JSON.parse(localStorage.getItem("auth"));
 
 export const useAuthStore = create (( set ) => ({
     auths: [],
