@@ -37,12 +37,12 @@ function App() {
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/" element={<Home />} />
 
-                    <Route element={<RouteGuard />}>
+                    {/* <Route element={<RouteGuard />}> */}
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/create" element={<CreateGame />} />
                         <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    </Route>
+                        <Route path="/register" element={<Register />} />
+                    {/* </Route> */}
                 </Routes>
                 <ToastContainer position="bottom-right"/>
                 {/* <Footer /> */}
