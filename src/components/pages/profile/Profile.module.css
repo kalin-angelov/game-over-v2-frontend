@@ -1,0 +1,106 @@
+.profile {
+
+    .profileCard {
+        margin-top: 50px;
+        padding: 10px;
+        background-color: rgba(245, 245, 245, 0.616);
+        border-radius: 10px;
+
+        .profileImgContainer {
+            height: 200px;
+            border-radius: 10px;
+
+            .defaultProfileImg {
+                border-top-right-radius: inherit;
+                border-top-left-radius: inherit;
+                width: inherit;
+                height: inherit;
+            }
+
+        }
+
+        p {
+            color: black;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1.5;
+        }
+
+        .editProfileForm{
+            display: flex;
+            flex-direction: column;
+
+            input {
+                border: none;
+                outline: none;
+                border-bottom: 1px solid hsl(219, 9%, 45%);
+                background-color: transparent;
+                margin: 5px;
+                padding: 5px;
+            }
+
+            .editProfileBtn {
+                font-size: 16px;
+                background-color: rgb(73, 197, 35);
+                border-radius: 5px;
+                color: #fff;
+                padding: 6px;
+                width: 100px;
+                margin: 10px auto;
+            }
+    
+            .editProfileBtn:hover {
+                border: black solid 2px;
+                color: black;
+            }
+        }
+    }
+    .userGamesContainer {
+
+        width: 100%;
+        padding: 10px;
+
+        .gameContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color:   rgba(245, 245, 245, 0.616);
+
+            .gameCoverContainer {
+                height: 55px;
+                width: 55px;
+                
+                .gameImg {
+                    width: inherit;
+                    height: inherit;
+                    object-fit: cover;
+                    clip-path: polygon(
+                        30% 0%, 70% 0%,
+                        100% 30%, 100% 70%,
+                        70% 100%, 30% 100%,
+                        0% 70%, 0% 30%
+                    );
+                }
+            }
+
+            p {
+                color: black;
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        .addGameContainer {
+            padding: 20px 25px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color:   rgba(245, 245, 245, 0.616);
+            text-align: center;
+        }
+    }
+}
