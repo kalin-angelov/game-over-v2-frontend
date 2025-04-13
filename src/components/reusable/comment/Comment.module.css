@@ -5,6 +5,7 @@
     margin: 10px;
     margin: 10px 0;
     background-color:   rgba(245, 245, 245, 0.616);
+    border-top: 1px solid;
 
     .commentInfo {
         display: flex;
@@ -19,7 +20,7 @@
             color: rgb(43, 43, 235);
             border: none;
             outline: none;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
             font-weight: 600;
         }
@@ -31,6 +32,12 @@
         color: black;
         font-weight: 400;
         font-size: 18px;
+    }
+
+    .repliesBtn {
+        background-color: transparent;
+        border: none;
+        color:  rgb(43, 43, 235);
     }
 }
 
