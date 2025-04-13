@@ -16,6 +16,7 @@ import CreateGame from "./components/pages/createGame/CreateGame";
 import Profile from "./components/pages/profile/Profile";
 import PageNotFound from "./components/pages/notFound/PageNotFound";
 import Details from "./components/pages/details/Details";
+import Catalog from "./components/pages/catalog/Catalog";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/details" element={<Details />} />
+                        <Route path="/catalog" element={<Catalog />} />
                     {/* </Route> */}
                 </Routes>
                 <ToastContainer position="bottom-right"/>
