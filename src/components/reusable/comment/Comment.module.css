@@ -1,0 +1,44 @@
+.comment {
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 10px 10px 15px;
+    margin: 10px;
+    margin: 10px 0;
+    background-color:   rgba(245, 245, 245, 0.616);
+
+    .commentInfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3px;
+
+        .commentBtn {
+            padding: 0 10px;
+            background-color: transparent;
+            color: rgb(43, 43, 235);
+            border: none;
+            outline: none;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    }
+
+    .commentText {
+        margin: 10px;
+        padding: 10px;
+        color: black;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .comment {
+        .commentInfo {
+            gap: 15px;
+        } 
+    }
+  
+}
