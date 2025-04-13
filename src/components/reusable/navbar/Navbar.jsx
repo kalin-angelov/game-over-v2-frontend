@@ -60,6 +60,11 @@ const Navbar = () => {
                                         Profile
                                     </Link> 
                                 </li>
+                                <li onClick={onClickFromUserMenu}>
+                                    <Link>
+                                        Catalog
+                                    </Link>
+                                </li>
                                 <li onClick={onClickFromUserMenu}> 
                                     <Link to="/create">
                                         Add game
