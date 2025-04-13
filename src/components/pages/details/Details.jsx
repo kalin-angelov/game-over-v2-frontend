@@ -1,8 +1,52 @@
+import { useState } from "react";
 import styles from "./Details.module.css";
 
 import Comment from "@/components/reusable/comment/Comment";
 
 const Details = () => {
+
+    const comments = [
+        {
+            id: 1,
+            author: "Jane Doe",
+            text: "This is a comment.",
+            replies: [
+                {
+                    id: 2,
+                    author: "John Smith",
+                    text: "This is a reply.",
+                    replies: [
+                    {
+                        id: 3,
+                        author: "Alice",
+                        text: "Reply to the reply!",
+                        replies: [],
+                    },
+            ],
+            },
+          ],
+        },
+        {
+            id: 4,
+            author: "Jane Doe",
+            text: "This is a comment.",
+            replies: [
+                {
+                    id: 5,
+                    author: "John Smith",
+                    text: "This is a reply.",
+                    replies: [
+                    {
+                        id: 6,
+                        author: "Alice",
+                        text: "Reply to the reply!",
+                        replies: [],
+                    },
+            ],
+            },
+          ],
+        },
+    ];
   return (
     <main className={styles.game} >
 
@@ -17,20 +61,24 @@ const Details = () => {
                     
                     <h2>Final Fantasy 12</h2>
                     <div className={styles.gameDescription}>
-                        <p>Question: <span>How Do I Build The Strongest Party And What Is The Best Job For Each Character ?</span></p>
+                        <p>Question: <span>How Do I Build The Strongest Party And What Is The Best Job For Each Character ? How Do I Build The Strongest Party And What Is The Best Job For Each Character ?How Do I Build The Strongest Party And What Is The Best Job For Each Character ?How Do I Build The Strongest Party And What Is The Best Job For Each Character ?How Do I Build The Strongest Party And What Is The Best Job For Each Character ?How Do I Build The Strongest Party And What Is The Best Job For Each Character ?How Do I Build The Strongest Party And What Is The Best Job For Each Character ?</span></p>
                     </div>
                     
-                    <div className={styles.commentBox}>
-                        <textarea placeholder="Write a comment..."></textarea>
-                        <button type="submit">Post</button>
-                    </div>
+                    
                 </section>
             </div>
             
         </div>
-        
+
+        <div className={styles.commentBox}>
+            <textarea placeholder="Write a comment..."></textarea>
+            <button type="submit">Post</button>
+        </div>
+
         <div className={styles.commentsContainer}>
-            <Comment />
+            {comments.map(comment => (
+                <Comment key={comment.id} comment={comment} />
+            ))}
         </div>
     </main>
   )
