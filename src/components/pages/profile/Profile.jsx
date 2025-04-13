@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
     const navigate = useNavigate();
-    const {userInfo, setUserInfo} = useContext(AuthContext);
+    const {userInfo} = useContext(AuthContext);
     const { getUser } = useUserStore();
     const [defaultUserInfo, setDefaultUserInfo] = useState({
         username: "",
