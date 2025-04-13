@@ -61,7 +61,7 @@ const Profile = () => {
                         <BsPlusSquare fontSize={30}/>
                     </div>
 
-                    <div className={styles.gameContainer}>
+                    <div className={styles.gameContainer} onClick={() => navigate("/details")}>
                         <figure className={styles.gameCoverContainer}>
                             <img className={styles.gameImg} src="https://upload.wikimedia.org/wikipedia/en/7/77/Assassins_Creed_2_Box_Art.JPG" alt="game cover" />
                         </figure>
@@ -71,7 +71,7 @@ const Profile = () => {
                         <FaFolderOpen fontSize={30}/>
                     </div>
 
-                    <div className={styles.gameContainer}>
+                    <div className={styles.gameContainer} onClick={() => navigate("/details")}>
                         <figure className={styles.gameCoverContainer}>
                             <img className={styles.gameImg} src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/God_of_War_%282005%29_cover.jpg/250px-God_of_War_%282005%29_cover.jpg" alt="game cover" />
                         </figure>
@@ -81,52 +81,12 @@ const Profile = () => {
                         <FaFolderOpen fontSize={30}/>
                     </div>
 
-                    <div className={styles.gameContainer}>
+                    <div className={styles.gameContainer} onClick={() => navigate("/details")}>
                         <figure className={styles.gameCoverContainer}>
                             <img className={styles.gameImg} src="https://image.api.playstation.com/vulcan/ap/rnd/202009/1710/UUnpHLJqLAIJX5HioswiPuAm.png" alt="game cover" />
                         </figure>
 
                         <p>DMC 5</p>
-
-                        <FaFolderOpen fontSize={30}/>
-                    </div>
-
-                    <div className={styles.gameContainer}>
-                        <figure className={styles.gameCoverContainer}>
-                            <img className={styles.gameImg} src="https://image.api.playstation.com/vulcan/ap/rnd/202009/1710/UUnpHLJqLAIJX5HioswiPuAm.png" alt="game cover" />
-                        </figure>
-
-                        <p>DMC 5</p>
-
-                        <FaFolderOpen fontSize={30}/>
-                    </div>
-
-                    <div className={styles.gameContainer}>
-                        <figure className={styles.gameCoverContainer}>
-                            <img className={styles.gameImg} src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/God_of_War_%282005%29_cover.jpg/250px-God_of_War_%282005%29_cover.jpg" alt="game cover" />
-                        </figure>
-
-                        <p>God of war</p>
-
-                        <FaFolderOpen fontSize={30}/>
-                    </div>
-
-                    <div className={styles.gameContainer}>
-                        <figure className={styles.gameCoverContainer}>
-                            <img className={styles.gameImg} src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/God_of_War_%282005%29_cover.jpg/250px-God_of_War_%282005%29_cover.jpg" alt="game cover" />
-                        </figure>
-
-                        <p>God of war</p>
-
-                        <FaFolderOpen fontSize={30}/>
-                    </div>
-
-                     <div className={styles.gameContainer}>
-                        <figure className={styles.gameCoverContainer}>
-                            <img className={styles.gameImg} src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/God_of_War_%282005%29_cover.jpg/250px-God_of_War_%282005%29_cover.jpg" alt="game cover" />
-                        </figure>
-
-                        <p>God of war</p>
 
                         <FaFolderOpen fontSize={30}/>
                     </div>
