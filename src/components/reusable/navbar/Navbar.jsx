@@ -61,7 +61,7 @@ const Navbar = () => {
                                     </Link> 
                                 </li>
                                 <li onClick={onClickFromUserMenu}>
-                                    <Link>
+                                    <Link to="/catalog">
                                         Catalog
                                     </Link>
                                 </li>
